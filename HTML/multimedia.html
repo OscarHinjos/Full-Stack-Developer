@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia</title>
+    <style>
+         article {
+            border-bottom: 1px solid gray;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PROYECTO HTML</h1>
+        <nav>
+            <!--Menu-->
+            <!--Lista desordenada con enlaces vacios-->
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="dieta.html">Dieta</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <main>
+        <!--Cargar un video nativo, un audio nativo y 
+        un video de youtube-->
+        
+        <section id="multimedia">
+            <h2>Videos</h2>
+            <article>
+                <h3>Video nativo</h3>
+                <video controls height="200" width="200">
+                    <source src="multimedia/3 Animales Comiendo Parte 3.mp4"/>
+                    no es compatible
+                </video>
+            </article>
+            <article>
+                <h3>Audio nativo</h3>
+                <audio controls >
+                    <source src="multimedia/Ñam ñam ñom - •Anjhaly5•.mp3"/>
+                    no es compatible
+                </audio>
+            </article>
+            <article>
+                <h3>Video de youtube</h3>
+                
+                <iframe width="200" height="200" src="https://www.youtube.com/embed/JhtgghMI36Y" title="100 ANIMALES PARA NIÑOS. Aprende los nombres de los animales y sus sonidos🦁🐯🐨" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Pagina multimedia &copy;</p>
+    </footer>
+</body>
+</html>
