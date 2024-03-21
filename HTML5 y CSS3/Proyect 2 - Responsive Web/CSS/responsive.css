@@ -300,11 +300,10 @@
         font-size: 18px;
     }
 
-    /* Agrega más ajustes según sea necesario */
+
 }
 
 @media (max-width: 375px) {
-    /* Ajustes para pantallas muy pequeñas */
     .header{
         height: 150px;
     }
@@ -355,5 +354,4 @@
     }
     
 
-    /* Agrega más ajustes según sea necesario */
 }
