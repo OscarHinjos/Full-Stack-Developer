@@ -12,6 +12,32 @@
 }
 
 
+@media (max-width: 1024px) {
+    .menu > ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu > ul > li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .aside ul li {
+        flex-basis: 100%;
+    }
+
+    .project {
+        margin: 0;
+        width: 100%;
+    }
+}
+
 @media (max-width:646px) {
     .content{
         display: flex;
@@ -59,4 +85,24 @@
         margin: 0px;
     }
     
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .aside {
+        order: -1;
+        margin-bottom: 20px;
+    }
+
+    .footer .logo,
+    .footer .info {
+        flex: 0 0 100%;
+    }
 }
