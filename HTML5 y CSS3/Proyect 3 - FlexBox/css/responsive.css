@@ -1,16 +1,15 @@
-@media (max-width:1334px) {
-    .header{
+@media (max-width: 1334px) {
+    .header {
         text-align: center;
         height: auto;
     }
-    .menu > ul{
+
+    .menu > ul {
         align-items: flex-start;
         justify-content: space-evenly;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin: 20px 0;
     }
 }
-
 
 @media (max-width: 1024px) {
     .menu > ul {
@@ -38,53 +37,40 @@
     }
 }
 
-@media (max-width:646px) {
-    .content{
+@media (max-width: 646px) {
+    .content {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding: 20px 0;
     }
 
-    .aside{
-        margin-right: 0px;
+    .aside {
+        margin-right: 0;
     }
 
-    .aside ul{
+    .aside ul {
         display: flex;
-        flex-flow: row wrap;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    .aside ul li{
-        flex-grow: 1;
-        margin-left: 5px;
-        margin-right: 5px;
+    .aside ul li {
+        flex: 1;
+        margin: 0 5px;
     }
 
-    .project{
-        margin-right: 20px;
-        margin-left: 20px;
+    .project {
+        margin: 0 20px;
     }
 
-    .footer .logo{
-        flex-grow: 1;
-        order: 1;
+    .footer .logo,
+    .footer .info {
         flex-basis: 100%;
         text-align: center;
-        margin: 0px;
+        margin: 0;
     }
-
-    .footer .info{
-        flex-grow: 1;
-        order: 2;
-        flex-basis: 100%;
-        text-align: center;
-        margin: 0px;
-    }
-    
 }
 
 @media (max-width: 480px) {
@@ -92,12 +78,12 @@
         font-size: 24px;
     }
 
-    .menu {
+    .menu,
+    .aside {
         display: none;
     }
 
     .aside {
-        order: -1;
         margin-bottom: 20px;
     }
 
