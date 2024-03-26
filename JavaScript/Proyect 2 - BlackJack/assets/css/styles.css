@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #2F4F30;
+    color: #ccc;
+}
+
+
+.title{
+    background-color: rgb(43, 40, 40);
+    color: #ccc;
+}
+
+
+
+.card{
+    margin-left: -75px;
+    width: 150px;
+
+}
+
+
