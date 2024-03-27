@@ -13,7 +13,7 @@ const main = (() => {
     let deck = [];
     let pointsPlayer = 0;
     let pointsCrupier = 0;
-
+    
     const btnNuevo = document.querySelector('#btnNuevo');
     const btnPedir = document.querySelector('#btnPedir');
     const btnDetener = document.querySelector('#btnDetener');
@@ -49,7 +49,7 @@ const main = (() => {
         }
         return deck.pop();
     };
-
+    
     const evaluateCard = (card) => {
         const value = card.substring(0, card.length - 1);
         return (!isNaN(value)) ? parseInt(value) : (value === 'A') ? 11 : 10;
