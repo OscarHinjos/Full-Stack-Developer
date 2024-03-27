@@ -4,10 +4,7 @@
 - 2H = Two of Hearts (Corazones)
 - 2S = Two of Spades (Spadas)
 */
-
-// Funcion anonimas autoinvocadas
-// Mejora de seguridad
-(() => {
+const main = (() => {
     'use strict';
 
     const typesCards = ['C', 'D', 'H', 'S'];
@@ -58,67 +55,86 @@
         return (!isNaN(value)) ? parseInt(value) : (value === 'A') ? 11 : 10;
     };
 
-    const showCard = (card, points, container) => {
-        points += evaluateCard(card);
-        spanList[container].innerText = points;
+    const turnCrupier = (pointsPlayer) => {
+        do {
+            const card = askCard();
+            pointsCrupier += evaluateCard(card);
+            spanList[1].innerText = pointsCrupier;
+            displayCard(card, crupierCards);
+            if (pointsPlayer > 21) {
+                break;
+            }
+        } while ((pointsCrupier < pointsPlayer) && (pointsCrupier <= 21));
+
+        setTimeout(() => {
+            showResult();
+        }, 20);
+    };
+
+    const displayCard = (card, container) => {
         const imgCard = document.createElement('img');
         imgCard.src = `assets/cards/${card}.png`;
         imgCard.classList = "card";
-        container === 0 ? playerCards.append(imgCard) : crupierCards.append(imgCard);
-        return points;
+        container.appendChild(imgCard);
     };
 
-    const endGame = () => {
-        setTimeout(() => {
-            let message;
-            if (pointsCrupier === pointsPlayer) {
-                message = "Empate";
-            } else if (pointsPlayer > 21 || (pointsCrupier <= 21 && pointsCrupier > pointsPlayer)) {
-                message = "Gana el Crupier";
-            } else {
-                message = "Gana el Jugador";
-            }
-            alert(message);
-        }, 20);
+    const showResult = () => {
+        let message;
+        if (pointsCrupier === pointsPlayer) {
+            message = "Empate";
+        } else if (pointsPlayer > 21 || (pointsCrupier <= 21 && pointsCrupier > pointsPlayer)) {
+            message = "Gana el Crupier";
+        } else {
+            message = "Gana el Jugador";
+        }
+        alert(message);
     };
 
     const init = () => {
         deck = createDeck();
+
         btnPedir.addEventListener('click', () => {
-            pointsPlayer = showCard(askCard(), pointsPlayer, 0);
+            const card = askCard();
+            pointsPlayer += evaluateCard(card);
+            spanList[0].innerText = pointsPlayer;
+            displayCard(card, playerCards);
             if (pointsPlayer > 21 || pointsPlayer === 21) {
                 btnPedir.disabled = true;
                 btnDetener.disabled = true;
-                endGame();
+                turnCrupier(pointsPlayer);
             }
         });
 
         btnDetener.addEventListener('click', () => {
             btnDetener.disabled = true;
             btnPedir.disabled = true;
-            while (pointsCrupier < pointsPlayer && pointsCrupier <= 21) {
-                pointsCrupier = showCard(askCard(), pointsCrupier, 1);
-            }
-            endGame();
+            turnCrupier(pointsPlayer);
         });
 
         btnNuevo.addEventListener('click', () => {
-            deck = [];
-            deck = createDeck();
-            btnPedir.disabled = false;
-            btnDetener.disabled = false;
-            spanList.forEach(span => span.innerText = 0);
-            playerCards.innerHTML = '';
-            crupierCards.innerHTML = '';
-            pointsCrupier = 0;
-            pointsPlayer = 0;
+            resetGame();
         });
     };
 
-    init(); // Iniciar el juego cuando se cargue la página por primera vez
+    const resetGame = () => {
+        deck = [];
+        deck = createDeck();
+        btnPedir.disabled = false;
+        btnDetener.disabled = false;
+        spanList.forEach(span => span.innerText = 0);
+        playerCards.innerHTML = '';
+        crupierCards.innerHTML = '';
+        pointsCrupier = 0;
+        pointsPlayer = 0;
+    };
+
+    return {
+        init: init
+    };
+
 })();
 
-
+main.init();
 
 
 
